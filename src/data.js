@@ -10,7 +10,7 @@ export const personalInfo = {
     resume: "/resume.pdf",
     linkedin: "https://www.linkedin.com/in/aaron-nader-1a6073238/",
     github: "https://github.com/AaronNader96",
-    sourceCode: "https://github.com/AaronNader96",
+    sourceCode: "https://github.com/AaronNader96/aaronnader-portfolio-v2",
   },
 };
 
