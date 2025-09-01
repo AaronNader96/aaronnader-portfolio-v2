@@ -22,12 +22,13 @@ const Home = () => {
   const cardBg = useColorModeValue("white", "gray.700");
 
   return (
-    <Container maxW="7xl" py={20}>
+    <Container maxW="container.xl" px={{ base: 4, md: 8 }} py={20}>
       <VStack spacing={16} align="stretch">
+        {/* Header */}
         <Box textAlign="center">
           <VStack spacing={6}>
             <Heading
-              size="2xl"
+              size={{ base: "xl", md: "2xl" }}
               bgGradient="linear(to-r, brand.400, brand.600)"
               bgClip="text"
             >
@@ -36,7 +37,9 @@ const Home = () => {
             <Heading size="md" color="gray.500">
               {personalInfo.title}
             </Heading>
-            <HStack spacing={4} justify="center">
+
+            {/* Social buttons */}
+            <HStack spacing={4} justify="center" flexWrap="wrap">
               <IconButton
                 as={Link}
                 href={personalInfo.links.resume}
@@ -71,7 +74,8 @@ const Home = () => {
                 transition="all 0.2s"
               />
             </HStack>
-            <Text mt={4} fontSize="md" color="gray.500">
+
+            <Text mt={4} fontSize="md" color="gray.500" px={{ base: 2, md: 0 }}>
               You can view portfolio source code{" "}
               <Link
                 href={personalInfo.links.sourceCode}
@@ -86,7 +90,12 @@ const Home = () => {
           </VStack>
         </Box>
 
-        <Grid templateColumns={{ base: "1fr", lg: "2fr 1fr" }} gap={16}>
+        {/* Grid */}
+        <Grid
+          templateColumns={{ base: "1fr", lg: "2fr 1fr" }}
+          gap={{ base: 8, lg: 16 }}
+        >
+          {/* About */}
           <GridItem>
             <VStack spacing={8} align="stretch">
               <Box>
@@ -94,7 +103,7 @@ const Home = () => {
                   About Me
                 </Heading>
                 <Text
-                  fontSize="lg"
+                  fontSize={{ base: "md", md: "lg" }}
                   lineHeight="tall"
                   color={useColorModeValue("gray.600", "gray.300")}
                 >
@@ -104,10 +113,11 @@ const Home = () => {
             </VStack>
           </GridItem>
 
+          {/* Tech Stack */}
           <GridItem>
             <Box
               bg={cardBg}
-              p={8}
+              p={{ base: 6, md: 8 }}
               rounded="xl"
               boxShadow="lg"
               _hover={{ transform: "translateY(-4px)", boxShadow: "xl" }}
@@ -118,13 +128,15 @@ const Home = () => {
               </Heading>
               <Wrap spacing={3}>
                 {techStack.map((tech, index) => (
-                  <WrapItem key={index}>
+                  <WrapItem key={index} maxW="100%">
                     <Badge
                       px={3}
                       py={2}
                       rounded="full"
                       fontSize="sm"
                       colorScheme="brand"
+                      whiteSpace="normal"
+                      textAlign="center"
                       variant={useColorModeValue("subtle", "solid")}
                       _hover={{ transform: "scale(1.05)" }}
                       transition="all 0.2s"
