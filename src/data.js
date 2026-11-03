@@ -50,7 +50,6 @@ export const skills = [
   },
 ];
 
-// Flat list of core technologies (used by the Statistics page count)
 export const techStack = skills
   .filter((g) => !["Methodologies", "Also Familiar With"].includes(g.category))
   .flatMap((g) => g.items);
@@ -228,28 +227,28 @@ export const timeline = [
       "Founded a technology company that designs web solutions and applications for clients.",
     skills: ["Web Development", "Leadership", "Client Relations"],
   },
+];
+
+export const education = [
   {
-    id: 4,
-    date: "2023",
-    title: "Web Development Certification",
-    company: "Certification",
-    description: "Earned a Web Development Certification.",
-    skills: ["Web Development"],
-  },
-  {
-    id: 5,
+    id: 1,
     date: "2023",
     title: "Bachelor of Science in Computer Science",
-    company: "University of Utah",
-    description: "Graduated with a B.S. in Computer Science.",
-    skills: ["Computer Science"],
+    school: "University of Utah",
+    kind: "degree",
   },
   {
-    id: 6,
+    id: 2,
+    date: "2023",
+    title: "Web Development Certification",
+    school: null,
+    kind: "certification",
+  },
+  {
+    id: 3,
     date: "2019",
     title: "Associate of Science in General Education",
-    company: "Salt Lake Community College",
-    description: "Graduated with an A.S. in General Education.",
-    skills: ["General Education"],
+    school: "Salt Lake Community College",
+    kind: "degree",
   },
 ];
