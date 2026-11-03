@@ -9,6 +9,8 @@ import {
   HStack,
   useColorModeValue,
   Flex,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react";
 import { timeline } from "../data.js";
 
@@ -92,6 +94,17 @@ const Timeline = () => {
                     <Text color={useColorModeValue("gray.600", "gray.300")}>
                       {item.description}
                     </Text>
+                    {item.highlights && (
+                      <UnorderedList
+                        spacing={1}
+                        pl={1}
+                        color={useColorModeValue("gray.600", "gray.300")}
+                      >
+                        {item.highlights.map((point, i) => (
+                          <ListItem key={i}>{point}</ListItem>
+                        ))}
+                      </UnorderedList>
+                    )}
                     <Box>
                       <Text fontSize="sm" fontWeight="semibold" mb={2}>
                         Key Skills:

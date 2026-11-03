@@ -16,10 +16,11 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import { Download, Linkedin, Github } from "lucide-react";
-import { personalInfo, techStack } from "../data.js";
+import { personalInfo, skills } from "../data.js";
 
 const Home = () => {
   const cardBg = useColorModeValue("white", "gray.700");
+  const badgeVariant = useColorModeValue("subtle", "solid");
 
   return (
     <Container maxW="container.xl" px={{ base: 4, md: 8 }} py={20}>
@@ -37,6 +38,12 @@ const Home = () => {
             <Heading size="md" color="gray.500">
               {personalInfo.title}
             </Heading>
+            <Text color="gray.500" fontSize="sm">
+              {personalInfo.location} ·{" "}
+              <Link href={`mailto:${personalInfo.email}`} color="brand.500">
+                {personalInfo.email}
+              </Link>
+            </Text>
 
             {/* Social buttons */}
             <HStack spacing={4} justify="center" flexWrap="wrap">
@@ -124,28 +131,44 @@ const Home = () => {
               transition="all 0.3s"
             >
               <Heading size="md" mb={6}>
-                Tech Stack
+                Skills
               </Heading>
-              <Wrap spacing={3}>
-                {techStack.map((tech, index) => (
-                  <WrapItem key={index} maxW="100%">
-                    <Badge
-                      px={3}
-                      py={2}
-                      rounded="full"
-                      fontSize="sm"
-                      colorScheme="brand"
-                      whiteSpace="normal"
-                      textAlign="center"
-                      variant={useColorModeValue("subtle", "solid")}
-                      _hover={{ transform: "scale(1.05)" }}
-                      transition="all 0.2s"
+              <VStack spacing={5} align="stretch">
+                {skills.map((group) => (
+                  <Box key={group.category}>
+                    <Text
+                      fontSize="xs"
+                      fontWeight="bold"
+                      textTransform="uppercase"
+                      letterSpacing="wide"
+                      color="gray.500"
+                      mb={2}
                     >
-                      {tech}
-                    </Badge>
-                  </WrapItem>
+                      {group.category}
+                    </Text>
+                    <Wrap spacing={2}>
+                      {group.items.map((tech) => (
+                        <WrapItem key={tech} maxW="100%">
+                          <Badge
+                            px={3}
+                            py={1}
+                            rounded="full"
+                            fontSize="xs"
+                            colorScheme="brand"
+                            whiteSpace="normal"
+                            textAlign="center"
+                            variant={badgeVariant}
+                            _hover={{ transform: "scale(1.05)" }}
+                            transition="all 0.2s"
+                          >
+                            {tech}
+                          </Badge>
+                        </WrapItem>
+                      ))}
+                    </Wrap>
+                  </Box>
                 ))}
-              </Wrap>
+              </VStack>
             </Box>
           </GridItem>
         </Grid>

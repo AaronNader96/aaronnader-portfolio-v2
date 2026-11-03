@@ -1,11 +1,12 @@
 export const personalInfo = {
   name: "Aaron Nader",
   title: "Software Engineer",
-  email: "aaron@example.com",
+  location: "Utah",
+  email: "aaronnader1996@gmail.com",
   birthday: "1996-04-23",
   websiteCreated: "2022-12-01",
   intro:
-    "Hey there! I'm Aaron Nader. I've been working as a Software Engineer for quite a while, diving deep into both front-end and back-end development. I'm passionate about building smooth, user-friendly interfaces with React and creating solid, reliable back-end systems using Node.js. I'm all about writing clean, efficient code, whether I'm building intuitive UIs or optimizing server-side performance. I've got a full-stack background and always stay curious, eager to pick up new technologies and improve my skills along the way. When I'm not coding, you can find me staying active and focused on my fitness and mental health. I'm also the founder of Immaculate Heart Tech, where I get to combine my love for tech with my passion for creating meaningful, innovative solutions.",
+    "I'm a Software Engineer with 3+ years of experience building, testing, and deploying web applications with TypeScript, JavaScript, React, Angular, Node.js, and SQL. At Capital One I build internal applications on an Agile Scrum team using CI/CD, including a Jira-style app used by about 5,000 people across 8+ business units. I use AI as a development tool, including Claude, Gemini, and GitHub Copilot, for debugging, prototyping, and migrations. Outside my day job, I founded Immaculate Heart Tech, which designs web solutions and applications for clients, and I own and lead development of ParishFlow, a digital bulletin platform for parishes.",
   links: {
     resume: "/resume.pdf",
     linkedin: "https://www.linkedin.com/in/aaron-nader-1a6073238/",
@@ -14,23 +15,53 @@ export const personalInfo = {
   },
 };
 
-export const techStack = [
-  "React JS",
-  "Node JS",
-  "JavaScript",
-  "SQL (PostgreSQL, MSSQL, Firebase, Supabase, Teradata, Snowflake)",
-  "Vite",
-  "OCP Container",
-  "Jenkins",
-  "Git",
+export const skills = [
+  {
+    category: "Languages",
+    items: ["JavaScript", "TypeScript", "Java", "Python", "SQL"],
+  },
+  {
+    category: "Frontend",
+    items: ["React", "React Native", "Angular 18+", "Vue", "HTML5", "CSS3"],
+  },
+  { category: "Backend", items: ["Node.js"] },
+  { category: "Databases", items: ["PostgreSQL", "MSSQL", "MySQL"] },
+  {
+    category: "DevOps & Cloud",
+    items: [
+      "CI/CD",
+      "Jenkins",
+      "GitLab CI/CD",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Microsoft Azure",
+      "Git",
+    ],
+  },
+  { category: "AI Tools", items: ["Claude", "Gemini", "GitHub Copilot"] },
+  {
+    category: "Methodologies",
+    items: ["Agile", "Scrum", "Jira", "Story Points", "Sprint Planning", "SDLC"],
+  },
+  {
+    category: "Also Familiar With",
+    items: ["Spring Boot", "Django", "Flask", "Ember.js", "C", "C++"],
+  },
 ];
+
+// Flat list of core technologies (used by the Statistics page count)
+export const techStack = skills
+  .filter((g) => !["Methodologies", "Also Familiar With"].includes(g.category))
+  .flatMap((g) => g.items);
 
 export const projects = [
   {
     id: 1,
     title: "ParishFlow",
-    description: "Parish management platform for churches.",
-    technologies: ["React", "Chakra UI", "JavaScript"],
+    description:
+      "Digital bulletin platform where parishes share Mass times, announcements, events, and weekly updates. Built with React and React Native, using Claude as a tool for most backend development.",
+    technologies: ["React", "React Native", "Claude"],
     github: null,
     demo: "https://parishflow.com/",
     image: "assets/parishflow.png",
@@ -38,7 +69,8 @@ export const projects = [
   {
     id: 2,
     title: "Immaculate Heart Tech",
-    description: "Company website for Immaculate Heart Tech.",
+    description:
+      "Technology company I founded that designs web solutions and applications for clients.",
     technologies: ["React", "Chakra UI", "JavaScript"],
     github: null,
     demo: "https://immaculateheart.tech/",
@@ -148,36 +180,76 @@ export const projects = [
 export const timeline = [
   {
     id: 1,
-    date: "2023 - Present",
-    title: "Founder & Lead Developer",
-    company: "Immaculate Heart Tech",
+    date: "Feb 2023 - Present",
+    title: "Software Engineer",
+    company: "Capital One",
     description:
-      "Founded tech company focused on creating meaningful, innovative solutions. Leading development of multiple client projects while maintaining a full time job.",
+      "Build, test, and deploy internal web applications on an Agile Scrum team.",
+    highlights: [
+      "Developed an internal Jira-style application for about 5,000 users across 8+ business units to cut costs.",
+      "Develop applications using TypeScript with Angular, plus JavaScript, React, and Node.js.",
+      "Led remediation of security vulnerabilities to meet security and risk requirements.",
+      "Design, code, test, and deploy new features using CI/CD best practices.",
+      "Identify and troubleshoot system and software issues and develop solutions.",
+      "Use SQL to manage databases and maintain data integrity.",
+      "Test and validate programs with QA to improve performance and meet quality standards.",
+      "Work with an Agile Scrum team to plan and review sprints, using Jira and story point estimates.",
+      "Apply AI as a tool for debugging, prototyping, and migrations, including Claude, Gemini, and GitHub Copilot.",
+    ],
     skills: [
-      "Leadership",
-      "Full-Stack Development",
-      "Business Strategy",
-      "Client Relations",
+      "TypeScript",
+      "Angular",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "SQL",
+      "CI/CD",
+      "Jira",
+      "Claude",
+      "Gemini",
+      "GitHub Copilot",
     ],
   },
   {
     id: 2,
-    date: "2023 - Present",
-    title: "Full-Stack Software Engineer",
-    company: "Capital One",
+    date: "Present",
+    title: "Owner & Lead Developer",
+    company: "ParishFlow",
     description:
-      "Working with a unique small team developing internal applications for reporting, agent metrics, handling support rotation, tickets, and more. Utilizing React for front-end development and Node.js for back-end services.",
-    skills: [
-      "React",
-      "Node.js",
-      "PostgreSQL",
-      "Snowflake",
-      "Teradata",
-      "Git",
-      "CI/CD Pipeline",
-      "Jenkins",
-      "OCP Container",
-      "Express.js",
-    ],
+      "Built a digital bulletin platform for parishes with React and React Native, using Claude as a tool for most backend development. Parishes share Mass times, announcements, events, and weekly updates.",
+    skills: ["React", "React Native", "Claude"],
+  },
+  {
+    id: 3,
+    date: "Present",
+    title: "Founder",
+    company: "Immaculate Heart Tech",
+    description:
+      "Founded a technology company that designs web solutions and applications for clients.",
+    skills: ["Web Development", "Leadership", "Client Relations"],
+  },
+  {
+    id: 4,
+    date: "2023",
+    title: "Web Development Certification",
+    company: "Certification",
+    description: "Earned a Web Development Certification.",
+    skills: ["Web Development"],
+  },
+  {
+    id: 5,
+    date: "2023",
+    title: "Bachelor of Science in Computer Science",
+    company: "University of Utah",
+    description: "Graduated with a B.S. in Computer Science.",
+    skills: ["Computer Science"],
+  },
+  {
+    id: 6,
+    date: "2019",
+    title: "Associate of Science in General Education",
+    company: "Salt Lake Community College",
+    description: "Graduated with an A.S. in General Education.",
+    skills: ["General Education"],
   },
 ];
