@@ -180,7 +180,7 @@ export const timeline = [
   {
     id: 1,
     section: "engineering",
-    date: "May 2025 - Present",
+    date: "Feb 2023 - Present",
     title: "Software Engineer",
     company: "Capital One",
     meta: "Full-time · Remote",
@@ -223,23 +223,6 @@ export const timeline = [
     description:
       "Built a digital bulletin platform for parishes with React and React Native, using Claude as a tool for most backend development. Parishes share Mass times, announcements, events, and weekly updates.",
     skills: ["React", "React Native", "Claude"],
-  },
-  {
-    id: 3,
-    section: "engineering",
-    date: "Feb 2023 - May 2025",
-    title: "Associate Software Engineer",
-    company: "Discover Financial Services",
-    meta: "Full-time · Remote",
-    highlights: [
-      "Identified system and software issues, evaluated troubleshooting options, and developed solutions.",
-      "Designed, coded, tested, and deployed new features and functionality using CI/CD best practices.",
-      "Produced clean, error-free code to meet aggressive timelines.",
-      "Tested and validated programs to enhance applications and improve performance.",
-      "Collaborated with the QA team to validate adherence to company and client quality standards.",
-      "Performed sprint planning, execution, and review within the software development life cycle.",
-    ],
-    skills: ["Node.js", "JavaScript", "React", "SQL", "CI/CD", "Agile"],
   },
   {
     id: 4,
